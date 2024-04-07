@@ -4,10 +4,13 @@ OW_url = "https://api.openweathermap.org/data/2.5/forecast"
 
 
 def get_data(lat=40.416775, lon=-3.703790, cnt=8):
+    with open("api.txt", "r") as file:
+        api_key = file.read().strip()
+
     parameters = {
         "lat": lat,
         "lon": lon,
-        "appid": "a8e424506e66ffa5776feda004e00efa",
+        "appid": api_key,
         "cnt": cnt,
         "lang": "es"
     }
@@ -20,5 +23,4 @@ def get_data(lat=40.416775, lon=-3.703790, cnt=8):
 
     return filtered_weather_data
 
-get_data()
 
